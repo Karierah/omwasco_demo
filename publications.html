@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | OMWASCO</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: #0077b6;
+    }
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .footer {
+      background-color: #023e8a;
+      color: white;
+      padding: 2rem 0;
+    }
+    .publication-card img {
+      height: 150px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top shadow">
+    <div class="container">
+
+
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">About Us</a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+              <li><a class="dropdown-item" href="about us.html">Our Mission</a></li>
+              <li><a class="dropdown-item" href="about us.html">Leadership</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="new_water_connection.html">new water connection</a></li>
+              <li><a class="dropdown-item" href="sewer_connection.html">Sewer connection</a></li>
+              <li><a class="dropdown-item" href="water_extension.html">Water extension</a></li>
+              <li><a class="dropdown-item" href="exhaust_services.html">exhaust services</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">resources</a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="bill_calculator.html">bill calculator</a></li>
+              <li><a class="dropdown-item" href="downloads.html">downloads</a></li>
+              <li><a class="dropdown-item" href="gis.html">GIS</a></li>
+              <li><a class="dropdown-item" href="#">paypoints</a></li>
+              <li><a class="dropdown-item" href="water tarrif.html">water tariff</a></li>
+              <li><a class="dropdown-item" href="#">reports</a></li>
+              <li><a class="dropdown-item" href="#">omwasco service charter</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="publications.html" class="nav-link">publications</a></li>
+          <li class="nav-item"><a href="tenders.html" class="nav-link">tenders</a></li>
+          <li class="nav-item"><a href="careers.html" class="nav-link">careers</a></li>
+          <li class="nav-item"><a href="contact us.html" class="nav-link">Contact</a></li>
+        </ul>
+        <!-- Search Form -->
+        <form class="d-flex ms-lg-3 mt-2 mt-lg-0" role="search" action="/search" method="GET">
+          <input class="form-control me-2" type="search" placeholder="..." aria-label="Search" name="q" />
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="bg-light py-5 mt-5">
+    <div class="container text-center">
+      <h1 class="mb-3">Our Publications</h1>
+      <p class="lead">Access our annual reports, newsletters, and other official documents.</p>
+    </div>
+  </section>
+
+  <!-- Publications Grid -->
+  <div class="container py-4">
+    <div class="row g-4">
+
+      <!-- Example Publication Card -->
+      <div class="col-md-4 publication-card">
+        <div class="card h-100 shadow-sm">
+          <img src="images/publication1.jpg" class="card-img-top" alt="Publication">
+          <div class="card-body">
+            <h5 class="card-title">Annual Report 2024</h5>
+            <p class="card-text">Detailed insights into operations, performance, and financials for 2024.</p>
+            <p class="text-muted small"><i class="bi bi-calendar-event me-1"></i> March 2025</p>
+            <a href="documents/annual-report-2024.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="bi bi-file-earmark-arrow-down"></i> Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 publication-card">
+        <div class="card h-100 shadow-sm">
+          <img src="images/publication2.jpg" class="card-img-top" alt="Publication">
+          <div class="card-body">
+            <h5 class="card-title">Sanitation Bulletin – Q1</h5>
+            <p class="card-text">Quarterly highlights on sanitation programs, awareness, and education efforts.</p>
+            <p class="text-muted small"><i class="bi bi-calendar-event me-1"></i> April 2025</p>
+            <a href="documents/sanitation-bulletin-q1.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="bi bi-file-earmark-arrow-down"></i> View Bulletin
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 publication-card">
+        <div class="card h-100 shadow-sm">
+          <img src="images/publication3.jpg" class="card-img-top" alt="Publication">
+          <div class="card-body">
+            <h5 class="card-title">Customer Newsletter – July</h5>
+            <p class="card-text">Customer-focused updates on services, events, and community engagement.</p>
+            <p class="text-muted small"><i class="bi bi-calendar-event me-1"></i> July 2025</p>
+            <a href="documents/customer-newsletter-july.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="bi bi-file-earmark-arrow-down"></i> Read More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more cards here -->
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer mt-5">
+    <div class="container text-center">
+      <p>Contact us: info@watersanitationco.com | +123 456 7890</p>
+      <div class="mb-2">
+        <a href="#" class="text-white mx-2">Facebook</a>
+        <a href="#" class="text-white mx-2">Twitter</a>
+        <a href="#" class="text-white mx-2">LinkedIn</a>
+      </div>
+      <p>&copy; 2025 Water & Sanitation Co. | <a href="#" class="text-white">Privacy Policy</a> | <a href="#"
+          class="text-white">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

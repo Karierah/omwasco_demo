@@ -75,38 +75,39 @@
             <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">About Us</a>
             <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-              <li><a class="dropdown-item" href="#">Our Mission</a></li>
-              <li><a class="dropdown-item" href="#">Leadership</a></li>
+              <li><a class="dropdown-item" href="about us.html">Our Mission</a></li>
+              <li><a class="dropdown-item" href="about us.html">Leadership</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">Services</a>
             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="#">new water connection</a></li>
-              <li><a class="dropdown-item" href="#">Sewer connection</a></li>
-              <li><a class="dropdown-item" href="#">Water extension</a></li>
-              <li><a class="dropdown-item" href="#">exhaust services</a></li>
+              <li><a class="dropdown-item" href="new_water_connection.html">new water connection</a></li>
+              <li><a class="dropdown-item" href="sewer_connection.html">Sewer connection</a></li>
+              <li><a class="dropdown-item" href="water_extension.html">Water extension</a></li>
+              <li><a class="dropdown-item" href="exhaust_services.html">exhaust services</a></li>
             </ul>
           </li>
 
-          <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">resources</a>
             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
               <li><a class="dropdown-item" href="bill_calculator.html">bill calculator</a></li>
-              <li><a class="dropdown-item" href="#">downloads</a></li>
+              <li><a class="dropdown-item" href="downloads.html">downloads</a></li>
+              <li><a class="dropdown-item" href="gis.html">GIS</a></li>
               <li><a class="dropdown-item" href="#">paypoints</a></li>
-              <li><a class="dropdown-item" href="#">water tariff</a></li>
+              <li><a class="dropdown-item" href="water tarrif.html">water tariff</a></li>
               <li><a class="dropdown-item" href="#">reports</a></li>
               <li><a class="dropdown-item" href="#">omwasco service charter</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="#" class="nav-link">publications</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">tenders</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">careers</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="publications.html" class="nav-link">publications</a></li>
+          <li class="nav-item"><a href="tenders.html" class="nav-link">tenders</a></li>
+          <li class="nav-item"><a href="careers.html" class="nav-link">careers</a></li>
+          <li class="nav-item"><a href="contact us.html" class="nav-link">Contact</a></li>
         </ul>
         <!-- Search Form -->
         <form class="d-flex ms-lg-3 mt-2 mt-lg-0" role="search" action="/search" method="GET">
@@ -125,17 +126,23 @@
         <label for="consumption" class="form-label">Water Consumption (in m³)</label>
         <input type="number" class="form-control" id="consumption" name="consumption" required min="0" />
       </div>
+
       <div class="mb-3">
-        <label class="form-label">Select Services</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="water" id="waterService" checked />
-          <label class="form-check-label" for="waterService">Water Service</label>
-        </div>
+        <label for="customerType" class="form-label">Customer Type</label>
+        <select class="form-select" id="customerType" required>
+          <option value="domestic">Domestic/Residential</option>
+          <option value="multi">Multi-Dwelling Unit</option>
+          <option value="commercial">Commercial/Industrial</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="sewer" id="sewerService" />
-          <label class="form-check-label" for="sewerService">Sewer Service</label>
+          <label class="form-check-label" for="sewerService">Include Sewer Service (75% of water bill)</label>
         </div>
       </div>
+
       <button type="submit" class="btn btn-primary w-100">Calculate Bill</button>
     </form>
 
@@ -164,26 +171,49 @@
         e.preventDefault();
 
         const consumption = parseFloat(document.getElementById("consumption").value);
-        const useWater = document.getElementById("waterService").checked;
+        const customerType = document.getElementById("customerType").value;
         const useSewer = document.getElementById("sewerService").checked;
 
-        const waterRate = 70; // per m³
-        const sewerRate = 30; // per m³
-
         let waterBill = 0;
-        let sewerBill = 0;
 
-        if (useWater) waterBill = consumption * waterRate;
-        if (useSewer) sewerBill = consumption * sewerRate;
+        if (customerType === "domestic") {
+          if (consumption <= 6) {
+            waterBill = consumption * 70;
+          } else if (consumption <= 20) {
+            waterBill = (6 * 70) + (consumption - 6) * 100;
+          } else if (consumption <= 50) {
+            waterBill = (6 * 70) + (14 * 100) + (consumption - 20) * 115;
+          } else if (consumption <= 100) {
+            waterBill = (6 * 70) + (14 * 100) + (30 * 115) + (consumption - 50) * 125;
+          } else if (consumption <= 300) {
+            waterBill = (6 * 70) + (14 * 100) + (30 * 115) + (50 * 125) + (consumption - 100) * 130;
+          } else {
+            waterBill = (6 * 70) + (14 * 100) + (30 * 115) + (50 * 125) + (200 * 130) + (consumption - 300) * 140;
+          }
+        } else if (customerType === "multi") {
+          waterBill = consumption * 115;
+        } else if (customerType === "commercial") {
+          if (consumption <= 50) {
+            waterBill = consumption * 100;
+          } else if (consumption <= 100) {
+            waterBill = (50 * 100) + (consumption - 50) * 110;
+          } else if (consumption <= 300) {
+            waterBill = (50 * 100) + (50 * 110) + (consumption - 100) * 120;
+          } else {
+            waterBill = (50 * 100) + (50 * 110) + (200 * 120) + (consumption - 300) * 140;
+          }
+        }
 
+        let sewerBill = useSewer ? waterBill * 0.75 : 0;
         const totalBill = waterBill + sewerBill;
 
         const resultDiv = document.getElementById("result");
         resultDiv.classList.remove("d-none");
         resultDiv.innerHTML = `
           <strong>Breakdown:</strong><br/>
-          ${useWater ? `Water Bill: KES ${waterBill.toFixed(2)}<br/>` : ""}
-          ${useSewer ? `Sewer Bill: KES ${sewerBill.toFixed(2)}<br/>` : ""}
+          Customer Type: <strong>${customerType.replace("-", " ")}</strong><br/>
+          Water Bill: KES ${waterBill.toFixed(2)}<br/>
+          ${useSewer ? `Sewer Bill (75%): KES ${sewerBill.toFixed(2)}<br/>` : ""}
           <hr/>
           <strong>Total Bill: KES ${totalBill.toFixed(2)}</strong>
         `;
